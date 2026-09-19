@@ -1,0 +1,1 @@
+{"name":"argazi-zander","version":"1.0.0","private":true,"type":"module","scripts":{"start":"node scripts/serve.mjs","check":"node --check dist/app.js && node --check dist/core.js","test":"node --test tests/core.test.mjs"}}
