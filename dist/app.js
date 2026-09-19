@@ -7,6 +7,7 @@ function modal(title,body){$('dialog-title').textContent=title;$('dialog-body').
 $('close-dialog').onclick=()=>$('detail-dialog').close();$('detail-dialog').addEventListener('click',e=>{if(e.target===$('detail-dialog')){const r=e.target.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)e.target.close()}});
 function download(filename,text,type='application/json'){const url=URL.createObjectURL(new Blob([text],{type}));const a=document.createElement('a');a.href=url;a.download=filename;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)}
 const map=L.map('map',{zoomControl:false,minZoom:9,maxZoom:18,zoomSnap:.25}).setView([55.401,60.413],11);
+map.attributionControl.setPrefix(false);
 L.control.zoom({position:'bottomright',zoomInTitle:'Приблизить',zoomOutTitle:'Отдалить'}).addTo(map);L.control.scale({position:'bottomleft',imperial:false}).addTo(map);
 const base=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{className:'osm-dark',attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',maxZoom:19}).addTo(map);
 const satelliteLayer=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{attribution:'Tiles &copy; Esri, Maxar, Earthstar Geographics and the GIS User Community',maxZoom:18});
